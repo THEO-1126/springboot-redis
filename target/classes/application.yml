@@ -1,0 +1,29 @@
+# 端口、mysql数据源、redis、mybatis 、log
+server:
+  port: 9998
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/dbtest?serverTimezone=GMT%2B8
+
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 1000
+    jedis:
+      pool:
+        min-idle: 5
+        max-idle: 10
+        max-wait: -1
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  type-aliases-package: cn.kgc.entities
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    cn.kgc: debug
